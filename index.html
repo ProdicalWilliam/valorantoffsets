@@ -1296,15 +1296,7 @@
 
     </main>
 </div>
-
-Yes, currently the search in the header **only filters file names** in the sidebar. To add full **in-file content search across all files**, here's the updated version with both:
-
-- **Sidebar search** = filters file names
-- **Global content search** = searches inside every file on GitHub on demand, shows results with context snippets
-
-Replace the entire `<script>` section with this:
-
-```javascript
+	
 <script>
 // ═══════════════════════════════════════════════════════════
 //  PARTICLES
@@ -2317,4 +2309,5 @@ document.addEventListener('keydown', e => {
 buildSidebar();
 showState('welcome');
 </script>
+
 
