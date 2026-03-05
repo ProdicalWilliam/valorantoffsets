@@ -1846,10 +1846,40 @@ function restoreSidebar() {
 }
 
 async function globalContentSearch(query) {
+    // Abort previous search if any
     if (searchAbort) searchAbort.abort();
     searchAbort = new AbortController();
     const signal = searchAbort.signal;
-    const lq     = query.toLowerCase();
+    const lq     = (query || '').toLowerCase();
+
+    // helper: escape for regex
+    function escapeRegex(str){ return str.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); }
+    // helper: escape for HTML
+    function escHtmlSafe(s) {
+      return (s+'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+                     .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+    }
+    // helper: produce highlighted, escaped HTML for a raw line and query
+    function highlightLine(rawLine, q) {
+        rawLine = rawLine == null ? '' : String(rawLine);
+        if (!q) return escHtmlSafe(rawLine);
+        const escQ = escapeRegex(q);
+        const re = new RegExp(escQ, 'gi');
+        let out = '';
+        let lastIndex = 0;
+        let m;
+        while ((m = re.exec(rawLine)) !== null) {
+            // append escaped text before match
+            out += escHtmlSafe(rawLine.slice(lastIndex, m.index));
+            // append escaped matched text inside <mark>
+            out += `<mark class="gr-mark">${escHtmlSafe(m[0])}</mark>`;
+            lastIndex = re.lastIndex;
+            // prevent infinite loop on zero-length matches
+            if (re.lastIndex === m.index) re.lastIndex++;
+        }
+        out += escHtmlSafe(rawLine.slice(lastIndex));
+        return out;
+    }
 
     showState('global');
     const container = document.getElementById('global-results');
@@ -1920,11 +1950,7 @@ async function globalContentSearch(query) {
             matches.slice(0,5).forEach(m => {
                 const snip = document.createElement('div');
                 snip.className = 'gr-snip';
-                const lineStr     = escHtml(m.line.trim());
-                const highlighted = lineStr.replace(
-                    new RegExp(escHtml(query).replace(/[.*+?^${}()|[\$\\$/g,'\\$&'),'gi'),
-                    match => `<mark class="gr-mark">${match}</mark>`
-                );
+                const highlighted = highlightLine(m.line, query);
                 snip.innerHTML = `<span class="gr-ln">${m.lineNum}</span><span class="gr-line-code">${highlighted}</span>`;
                 snip.addEventListener('click', () => {
                     const item = document.querySelector(`.file-item[data-file="${file}"][data-part="${part}"]`);
@@ -1964,7 +1990,7 @@ async function globalContentSearch(query) {
         }
     }
 }
-
+    
 const KEYWORDS = new Set([
     'alignas','alignof','and','and_eq','asm','auto','bitand','bitor','bool',
     'break','case','catch','char','char8_t','char16_t','char32_t','class',
@@ -2308,4 +2334,5 @@ showState('welcome');
 </script>
 </body>
 </html>
+
 
