@@ -1223,14 +1223,28 @@
     <!-- MAIN -->
 	    <main id="main">
 
-        <!-- WELCOME -->
-        <div id="welcome">
-            <div class="big-icon">⬡</div>
-            <h2>SDK Viewer</h2>
-            <p>Browse 257 header files across 3 parts.<br>Click any file in the sidebar to load it instantly from GitHub.</p>
-            <div class="hint-box">← SELECT A FILE TO BEGIN</div>
-        </div>
+    <!-- Section -->
+    <div id="welcome">
+        <div class="big-icon">⬡</div>
+        <h2>SDK Viewer</h2>
+        <p>Browse 257 header files across 3 parts.<br>Click any file in the sidebar to load it instantly from GitHub.</p>
+        <div class="hint-box">← SELECT A FILE TO BEGIN</div>
+    </div>
 
+    <div id="load-state">
+        <div class="spinner"></div>
+        <div class="load-text">FETCHING FROM GITHUB...</div>
+    </div>
+
+    <div id="error-state">
+        <div class="error-icon">⚠</div>
+        <div class="error-title">Failed to load file</div>
+        <div class="error-msg" id="error-msg"></div>
+    </div>
+
+    <!-- THEN GLOBAL RESULTS -->
+    <div id="global-results"></div>
+			
         <!-- LOAD STATE -->
         <div id="load-state">
             <div class="spinner"></div>
@@ -2303,3 +2317,4 @@ document.addEventListener('keydown', e => {
 buildSidebar();
 showState('welcome');
 </script>
+
