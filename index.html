@@ -1192,20 +1192,15 @@
 <canvas id="canvas-bg"></canvas>
 <div id="progress"></div>
 
-<!-- GLOBAL SEARCH RESULTS -->
-<div id="global-results"></div>
-
 <div id="app">
 
-    <!-- HEADER -->
     <header id="header">
         <div id="header-brand">
             <h1>⬡ VAL SDK</h1>
             <span class="subtitle">Structs · Offsets · Reversal</span>
         </div>
         <div id="search-wrap">
-            <span style="position:absolute;left:12px;top:50%;transform:translateY(-50%);
-                  color:var(--green-dim);font-size:16px;pointer-events:none;">⌕</span>
+            <span style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--green-dim);font-size:16px;pointer-events:none;">⌕</span>
             <input id="search" type="text" placeholder="Filter files by name...">
         </div>
         <button id="search-mode-btn">MODE: NAME</button>
@@ -1215,60 +1210,40 @@
         </div>
     </header>
 
-    <!-- SIDEBAR -->
-    <nav id="sidebar">
-        <!-- built by JS -->
-    </nav>
+    <nav id="sidebar"></nav>
 
-    <!-- MAIN -->
-	    <main id="main">
+    <main id="main">
 
-    <!-- Section -->
-    <div id="welcome">
-        <div class="big-icon">⬡</div>
-        <h2>SDK Viewer</h2>
-        <p>Browse 257 header files across 3 parts.<br>Click any file in the sidebar to load it instantly from GitHub.</p>
-        <div class="hint-box">← SELECT A FILE TO BEGIN</div>
-    </div>
+        <div id="welcome">
+            <div class="big-icon">⬡</div>
+            <h2>SDK Viewer</h2>
+            <p>Browse 257 header files across 3 parts.<br>Click any file in the sidebar to load it instantly from GitHub.</p>
+            <div class="hint-box">← SELECT A FILE TO BEGIN</div>
+        </div>
 
-    <div id="load-state">
-        <div class="spinner"></div>
-        <div class="load-text">FETCHING FROM GITHUB...</div>
-    </div>
-
-    <div id="error-state">
-        <div class="error-icon">⚠</div>
-        <div class="error-title">Failed to load file</div>
-        <div class="error-msg" id="error-msg"></div>
-    </div>
-
-    <!-- THEN GLOBAL RESULTS -->
-    <div id="global-results"></div>
-			
-        <!-- LOAD STATE -->
         <div id="load-state">
             <div class="spinner"></div>
             <div class="load-text">FETCHING FROM GITHUB...</div>
         </div>
 
-        <!-- ERROR STATE -->
         <div id="error-state">
             <div class="error-icon">⚠</div>
             <div class="error-title">Failed to load file</div>
-            <div class="error-msg" id="error-msg">Could not fetch from GitHub. Make sure the repository is public.</div>
+            <div class="error-msg" id="error-msg"></div>
         </div>
 
-        <!-- FILE HEADER -->
+        <div id="global-results"></div>
+
         <div id="file-header">
             <div id="file-path">
                 <span class="crumb-part" id="crumb-part"></span>
                 <span class="crumb-sep">/</span>
                 <span class="crumb-file" id="crumb-file"></span>
             </div>
-            <div id="file-meta" style="display:flex;gap:10px;align-items:center;">
+            <div style="display:flex;gap:10px;align-items:center;">
                 <span class="badge" id="badge-lines">0 lines</span>
                 <span class="badge" id="badge-size">0 KB</span>
-                <span class="badge green" id="badge-lang">.H</span>
+                <span class="badge green">.H</span>
             </div>
             <div class="file-actions">
                 <button class="btn btn-ghost" onclick="toggleInlineSearch()">⌕ FIND</button>
@@ -1277,7 +1252,6 @@
             </div>
         </div>
 
-        <!-- INLINE SEARCH BAR -->
         <div id="inline-bar">
             <input id="inline-input" type="text" placeholder="Find in file...">
             <span id="inline-info">0 / 0</span>
@@ -1286,7 +1260,6 @@
             <button class="btn btn-ghost" style="padding:5px 10px;font-size:10px;" onclick="closeInlineSearch()">✕</button>
         </div>
 
-        <!-- CODE VIEWER -->
         <div id="code-wrap">
             <div id="code-container">
                 <div id="line-numbers"></div>
@@ -2309,6 +2282,7 @@ document.addEventListener('keydown', e => {
 buildSidebar();
 showState('welcome');
 </script>
+
 
 
 
