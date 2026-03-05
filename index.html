@@ -2104,7 +2104,9 @@ function buildSidebar() {
 }
 
 async function loadFile(part, file, size, itemEl) {
-    document.querySelectorAll('.file-item').forEach(i => i.classList.remove('active'));
+    console.log('loadFile called:', part, file, size); // ADD THIS
+    document.querySelectorAll('a,button,.file-item,...').forEach(el => {
+    el.addEventListener('mouseenter', () => ring.classList.add('hover'));
     if (itemEl) itemEl.classList.add('active');
     currentFile = file;
     currentPart = part;
@@ -2334,5 +2336,6 @@ showState('welcome');
 </script>
 </body>
 </html>
+
 
 
