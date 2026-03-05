@@ -1339,7 +1339,6 @@
 </div>
 
 <script>
-
 let accentRGB = '0,255,65';
 
 const dot  = document.getElementById('cursor-dot');
@@ -2107,9 +2106,7 @@ function buildSidebar() {
 }
 
 async function loadFile(part, file, size, itemEl) {
-    console.log('loadFile called:', part, file, size); // ADD THIS
-    document.querySelectorAll('a,button,.file-item,...').forEach(el => {
-    el.addEventListener('mouseenter', () => ring.classList.add('hover'));
+    document.querySelectorAll('.file-item').forEach(i => i.classList.remove('active'));
     if (itemEl) itemEl.classList.add('active');
     currentFile = file;
     currentPart = part;
