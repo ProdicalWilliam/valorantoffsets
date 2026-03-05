@@ -423,6 +423,224 @@
             white-space: nowrap;
         }
 
+		        /* ── SEARCH MODE BUTTON ── */
+        #search-mode-btn {
+            padding: 8px 14px;
+            font-family: inherit;
+            font-size: 10px;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            cursor: pointer;
+            background: transparent;
+            border: 1px solid var(--border-green);
+            color: var(--text-dim);
+            text-transform: uppercase;
+            white-space: nowrap;
+            transition: all 0.15s;
+        }
+
+        #search-mode-btn:hover {
+            border-color: var(--green);
+            color: var(--green);
+        }
+
+        #search-mode-btn.active-mode {
+            background: rgba(0,255,65,0.1);
+            border-color: var(--green);
+            color: var(--green);
+            box-shadow: 0 0 10px var(--green-glow);
+        }
+
+        /* ── GLOBAL RESULTS PANEL ── */
+        #global-results {
+            display: none;
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px 24px;
+        }
+
+        #global-results::-webkit-scrollbar { width: 4px; }
+        #global-results::-webkit-scrollbar-track { background: transparent; }
+        #global-results::-webkit-scrollbar-thumb {
+            background: var(--border-green);
+            border-radius: 2px;
+        }
+
+        .gr-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-green);
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .gr-title {
+            font-size: 13px;
+            color: var(--text);
+            letter-spacing: 1px;
+        }
+
+        .gr-query {
+            color: var(--green);
+            font-weight: 700;
+        }
+
+        .gr-sub {
+            font-size: 11px;
+            color: var(--text-dim);
+            letter-spacing: 1px;
+        }
+
+        /* result card */
+        .gr-card {
+            margin-bottom: 14px;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            overflow: hidden;
+            transition: border-color 0.15s;
+        }
+
+        .gr-card:hover { border-color: var(--border-green); }
+
+        .gr-card-header {
+            padding: 10px 16px;
+            background: var(--bg-card2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: background 0.15s;
+            gap: 12px;
+        }
+
+        .gr-card-header:hover { background: rgba(0,255,65,0.06); }
+
+        .gr-card-file {
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            min-width: 0;
+            overflow: hidden;
+        }
+
+        .gr-card-part {
+            color: var(--text-dimmer);
+            font-size: 11px;
+            flex-shrink: 0;
+        }
+
+        .gr-card-sep {
+            color: var(--text-dimmer);
+            flex-shrink: 0;
+        }
+
+        .gr-card-name {
+            color: var(--green);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .gr-card-count {
+            font-size: 10px;
+            color: var(--text-dim);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 2px 8px;
+            border-radius: 3px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        /* snippets */
+        .gr-snippets {
+            background: var(--bg-card);
+            border-top: 1px solid var(--border);
+        }
+
+        .gr-snip {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            padding: 6px 16px;
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            transition: background 0.1s;
+            overflow: hidden;
+        }
+
+        .gr-snip:last-child { border-bottom: none; }
+
+        .gr-snip:hover { background: rgba(0,255,65,0.04); }
+
+        .gr-ln {
+            font-size: 10px;
+            color: var(--text-dimmer);
+            min-width: 36px;
+            text-align: right;
+            flex-shrink: 0;
+            user-select: none;
+        }
+
+        .gr-line-code {
+            font-size: 11px;
+            color: var(--text-dim);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-family: 'Consolas', monospace;
+        }
+
+        mark.gr-mark {
+            background: rgba(255,200,0,0.28);
+            color: #ffd700;
+            border-radius: 2px;
+            padding: 0 1px;
+        }
+
+        .gr-more {
+            padding: 6px 16px;
+            font-size: 10px;
+            color: var(--text-dimmer);
+            letter-spacing: 1px;
+            font-style: italic;
+        }
+
+        /* skip notice */
+        .gr-skip {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 12px;
+            margin-bottom: 6px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            background: var(--bg-card);
+            font-size: 11px;
+        }
+
+        .gr-skip-icon { color: #ffaa00; }
+
+        .gr-skip-file {
+            color: var(--text-dim);
+            font-family: 'Consolas', monospace;
+        }
+
+        .gr-skip-reason { color: var(--text-dimmer); }
+
+        /* empty state */
+        .gr-empty {
+            text-align: center;
+            padding: 48px 24px;
+            font-size: 13px;
+            color: var(--text-dim);
+            letter-spacing: 1px;
+        }
+
         .btn-sm {
             padding: 5px 10px;
             font-size: 10px;
@@ -974,6 +1192,9 @@
 <canvas id="canvas-bg"></canvas>
 <div id="progress"></div>
 
+<!-- GLOBAL SEARCH RESULTS -->
+<div id="global-results"></div>
+
 <div id="app">
 
     <!-- HEADER -->
@@ -983,12 +1204,14 @@
             <span class="subtitle">Structs · Offsets · Reversal</span>
         </div>
         <div id="search-wrap">
-            <span style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--green-dim);font-size:16px;pointer-events:none;">⌕</span>
+            <span style="position:absolute;left:12px;top:50%;transform:translateY(-50%);
+                  color:var(--green-dim);font-size:16px;pointer-events:none;">⌕</span>
             <input id="search" type="text" placeholder="Filter files by name...">
         </div>
+        <button id="search-mode-btn">MODE: NAME</button>
         <div id="hdr-stats" style="font-size:11px;color:var(--text-dim);white-space:nowrap;">
-            <span id="stat-files" style="color:var(--green);">257</span> files &nbsp;·&nbsp;
-            <span id="stat-parts" style="color:var(--green);">3</span> parts
+            <span style="color:var(--green);">257</span> files &nbsp;·&nbsp;
+            <span style="color:var(--green);">3</span> parts
         </div>
     </header>
 
@@ -1060,6 +1283,14 @@
     </main>
 </div>
 
+Yes, currently the search in the header **only filters file names** in the sidebar. To add full **in-file content search across all files**, here's the updated version with both:
+
+- **Sidebar search** = filters file names
+- **Global content search** = searches inside every file on GitHub on demand, shows results with context snippets
+
+Replace the entire `<script>` section with this:
+
+```javascript
 <script>
 // ═══════════════════════════════════════════════════════════
 //  PARTICLES
@@ -1118,15 +1349,11 @@
 
     function animate() {
         ctx.clearRect(0, 0, W, H);
-
         drawConnections();
-
         for (let p of particles) {
             p.pulse += p.pulseSpeed;
             const pulsedAlpha = p.alpha * (0.6 + 0.4 * Math.sin(p.pulse));
             const pulsedR = p.r * (0.85 + 0.15 * Math.sin(p.pulse));
-
-            // glow
             const grd = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, pulsedR * 4);
             grd.addColorStop(0, `rgba(0,255,65,${pulsedAlpha})`);
             grd.addColorStop(1, `rgba(0,255,65,0)`);
@@ -1134,21 +1361,16 @@
             ctx.arc(p.x, p.y, pulsedR * 4, 0, Math.PI * 2);
             ctx.fillStyle = grd;
             ctx.fill();
-
-            // core dot
             ctx.beginPath();
             ctx.arc(p.x, p.y, pulsedR, 0, Math.PI * 2);
             ctx.fillStyle = `rgba(0,255,65,${pulsedAlpha * 2})`;
             ctx.fill();
-
             p.x += p.vx;
             p.y += p.vy;
-
             if (p.y < -10) { p.y = H + 10; p.x = rand(0, W); }
             if (p.x < -10) p.x = W + 10;
             if (p.x > W + 10) p.x = -10;
         }
-
         requestAnimationFrame(animate);
     }
 
@@ -1157,13 +1379,10 @@
     animate();
 })();
 
-
 // ═══════════════════════════════════════════════════════════
 //  FILE REGISTRY
-//  Format: [part, filename, size_bytes]
 // ═══════════════════════════════════════════════════════════
 const FILES = [
-    // PART 1
     ['part1','ControlRigSpline.h',29903],
     ['part1','CoreOnline.h',2269],
     ['part1','CoreSDKUtils.h',8377],
@@ -1264,7 +1483,6 @@ const FILES = [
     ['part1','WwiseResourceLoader.h',32530],
     ['part1','WwiseSimpleExternalSource.h',4425],
     ['part1','XboxGamePass_DeactivationPane.h',6768],
-    // PART 2
     ['part2','Gauntlet.h',1619],
     ['part2','GeometryCollectionEngine.h',96308],
     ['part2','GeometryCollectionNodes.h',274927],
@@ -1365,7 +1583,6 @@ const FILES = [
     ['part2','RGIPermissionsRiotGamesApi.h',881],
     ['part2','RGIPlayerController.h',1212],
     ['part2','RGIQRCode.h',969],
-    // PART 3
     ['part3','Accolades.h',44125],
     ['part3','ACLPlugin.h',6640],
     ['part3','ActorLayerUtilities.h',2047],
@@ -1426,10 +1643,10 @@ const FILES = [
 ];
 
 // ═══════════════════════════════════════════════════════════
-//  CONFIG — set your GitHub details here
+//  CONFIG
 // ═══════════════════════════════════════════════════════════
-const GITHUB_USER = 'ProdicalWilliam';
-const GITHUB_REPO = 'valorantoffsets';
+const GITHUB_USER   = 'YOUR_USERNAME';
+const GITHUB_REPO   = 'YOUR_REPO';
 const GITHUB_BRANCH = 'main';
 
 function rawUrl(part, file) {
@@ -1439,35 +1656,47 @@ function rawUrl(part, file) {
 // ═══════════════════════════════════════════════════════════
 //  STATE
 // ═══════════════════════════════════════════════════════════
-let currentFile   = null;
-let currentPart   = null;
-let rawContent    = '';
-let hitNodes      = [];
-let hitIndex      = 0;
-let inlineVisible = false;
+let currentFile    = null;
+let currentPart    = null;
+let rawContent     = '';
+let hitNodes       = [];
+let hitIndex       = 0;
+let inlineVisible  = false;
+let searchAbort    = null; // AbortController for global search
+let searchMode     = 'name'; // 'name' | 'content'
 
 // ═══════════════════════════════════════════════════════════
 //  HELPERS
 // ═══════════════════════════════════════════════════════════
 function fmtSize(bytes) {
-    if (bytes < 1024)       return bytes + ' B';
-    if (bytes < 1048576)    return (bytes / 1024).toFixed(1) + ' KB';
+    if (bytes < 1024)    return bytes + ' B';
+    if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
     return (bytes / 1048576).toFixed(1) + ' MB';
+}
+
+function escHtml(s) {
+    return s
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
 }
 
 function setProgress(pct, hide) {
     const bar = document.getElementById('progress');
     bar.style.width   = pct + '%';
     bar.style.opacity = '1';
-    if (hide) setTimeout(() => { bar.style.opacity = '0'; bar.style.width = '0%'; }, 400);
+    if (hide) setTimeout(() => {
+        bar.style.opacity = '0';
+        bar.style.width   = '0%';
+    }, 400);
 }
 
 function showState(which) {
-    // which: 'welcome' | 'loading' | 'error' | 'viewer'
-    document.getElementById('welcome').style.display    = which === 'welcome'  ? 'flex' : 'none';
-    document.getElementById('load-state').style.display = which === 'loading'  ? 'flex' : 'none';
-    document.getElementById('error-state').style.display= which === 'error'    ? 'flex' : 'none';
-    document.getElementById('code-wrap').style.display  = which === 'viewer'   ? 'block': 'none';
+    document.getElementById('welcome').style.display     = which === 'welcome' ? 'flex' : 'none';
+    document.getElementById('load-state').style.display  = which === 'loading' ? 'flex' : 'none';
+    document.getElementById('error-state').style.display = which === 'error'   ? 'flex' : 'none';
+    document.getElementById('code-wrap').style.display   = which === 'viewer'  ? 'block': 'none';
+    document.getElementById('global-results').style.display = which === 'global' ? 'block' : 'none';
     const fh = document.getElementById('file-header');
     if (which === 'viewer') fh.classList.add('visible');
     else fh.classList.remove('visible');
@@ -1475,12 +1704,238 @@ function showState(which) {
 }
 
 // ═══════════════════════════════════════════════════════════
-//  SYNTAX HIGHLIGHTER  (lightweight, no deps)
+//  SEARCH MODE TOGGLE
 // ═══════════════════════════════════════════════════════════
-function escHtml(s) {
-    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+document.getElementById('search-mode-btn').addEventListener('click', function() {
+    if (searchMode === 'name') {
+        searchMode = 'content';
+        this.textContent = 'MODE: CONTENT';
+        this.classList.add('active-mode');
+        document.getElementById('search').placeholder = 'Search inside all files...';
+    } else {
+        searchMode = 'name';
+        this.textContent = 'MODE: NAME';
+        this.classList.remove('active-mode');
+        document.getElementById('search').placeholder = 'Filter files by name...';
+        // clear global results if switching back
+        clearGlobalResults();
+        restoreSidebar();
+    }
+});
+
+// ═══════════════════════════════════════════════════════════
+//  MAIN SEARCH INPUT
+// ═══════════════════════════════════════════════════════════
+let searchDebounce = null;
+
+document.getElementById('search').addEventListener('input', function() {
+    const q = this.value.trim();
+    clearTimeout(searchDebounce);
+
+    if (searchMode === 'name') {
+        filterSidebarByName(q);
+    } else {
+        if (!q) {
+            clearGlobalResults();
+            restoreSidebar();
+            return;
+        }
+        searchDebounce = setTimeout(() => globalContentSearch(q), 400);
+    }
+});
+
+// ═══════════════════════════════════════════════════════════
+//  SIDEBAR NAME FILTER
+// ═══════════════════════════════════════════════════════════
+function filterSidebarByName(q) {
+    const lq    = q.toLowerCase();
+    const items = document.querySelectorAll('.file-item');
+    const groups = document.querySelectorAll('.part-group');
+
+    items.forEach(item => {
+        const name = item.dataset.file.toLowerCase();
+        item.classList.toggle('hidden', !!(q && !name.includes(lq)));
+    });
+
+    if (q) {
+        groups.forEach(group => {
+            group.querySelector('.part-header').classList.add('open');
+            group.querySelector('.file-list').classList.add('open');
+        });
+    }
+
+    groups.forEach(group => {
+        const visible = group.querySelectorAll('.file-item:not(.hidden)').length;
+        group.style.display = visible === 0 ? 'none' : '';
+    });
 }
 
+function restoreSidebar() {
+    document.querySelectorAll('.file-item').forEach(i => i.classList.remove('hidden'));
+    document.querySelectorAll('.part-group').forEach(g => g.style.display = '');
+}
+
+// ═══════════════════════════════════════════════════════════
+//  GLOBAL CONTENT SEARCH
+// ═══════════════════════════════════════════════════════════
+async function globalContentSearch(query) {
+    // cancel any in-progress search
+    if (searchAbort) searchAbort.abort();
+    searchAbort = new AbortController();
+    const signal = searchAbort.signal;
+
+    const lq = query.toLowerCase();
+
+    // show results panel
+    showState('global');
+    const container = document.getElementById('global-results');
+    container.innerHTML = `
+        <div class="gr-header">
+            <span class="gr-title">⌕ Searching all files for <span class="gr-query">"${escHtml(query)}"</span></span>
+            <span class="gr-sub" id="gr-progress-text">0 / ${FILES.length} files scanned</span>
+        </div>
+        <div id="gr-list"></div>`;
+
+    const grList     = document.getElementById('gr-list');
+    const grProgress = document.getElementById('gr-progress-text');
+
+    let scanned  = 0;
+    let matched  = 0;
+    let aborted  = false;
+
+    // skip huge files (>5MB) by default to keep it fast, warn user
+    const SKIP_THRESHOLD = 5 * 1024 * 1024;
+
+    for (const [part, file, size] of FILES) {
+        if (signal.aborted) { aborted = true; break; }
+
+        scanned++;
+        grProgress.textContent = `${scanned} / ${FILES.length} files scanned · ${matched} matches`;
+
+        // skip very large files
+        if (size > SKIP_THRESHOLD) {
+            const skipEl = document.createElement('div');
+            skipEl.className = 'gr-skip';
+            skipEl.innerHTML = `<span class="gr-skip-icon">⚡</span> <span class="gr-skip-file">${escHtml(file)}</span> <span class="gr-skip-reason">skipped — ${fmtSize(size)} (too large)</span>`;
+            grList.appendChild(skipEl);
+            continue;
+        }
+
+        try {
+            const res = await fetch(rawUrl(part, file), { signal });
+            if (!res.ok) continue;
+            const text = await res.text();
+            if (signal.aborted) { aborted = true; break; }
+
+            const lines   = text.split('\n');
+            const matches = [];
+
+            lines.forEach((line, idx) => {
+                if (line.toLowerCase().includes(lq)) {
+                    matches.push({ lineNum: idx + 1, line });
+                }
+            });
+
+            if (matches.length === 0) continue;
+            matched++;
+
+            // build result card
+            const card = document.createElement('div');
+            card.className = 'gr-card';
+
+            const cardHeader = document.createElement('div');
+            cardHeader.className = 'gr-card-header';
+            cardHeader.innerHTML = `
+                <span class="gr-card-file">
+                    <span class="gr-card-part">${part}</span>
+                    <span class="gr-card-sep">/</span>
+                    <span class="gr-card-name">${escHtml(file)}</span>
+                </span>
+                <span class="gr-card-count">${matches.length} match${matches.length !== 1 ? 'es' : ''}</span>`;
+
+            // clicking header opens the file
+            cardHeader.addEventListener('click', () => {
+                const item = document.querySelector(`.file-item[data-file="${file}"][data-part="${part}"]`);
+                loadFile(part, file, size, item);
+                // after load, open inline search with query
+                setTimeout(() => {
+                    openInlineSearch();
+                    document.getElementById('inline-input').value = query;
+                    applyInlineSearch(query);
+                }, 800);
+            });
+
+            const snippets = document.createElement('div');
+            snippets.className = 'gr-snippets';
+
+            // show up to 5 snippet lines
+            const shown = matches.slice(0, 5);
+            for (const m of shown) {
+                const snip = document.createElement('div');
+                snip.className = 'gr-snip';
+
+                const lineStr  = escHtml(m.line.trim());
+                const llineStr = lineStr.toLowerCase();
+                const lqe      = escHtml(query).toLowerCase();
+                const highlighted = lineStr.replace(
+                    new RegExp(escHtml(query).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi'),
+                    match => `<mark class="gr-mark">${match}</mark>`
+                );
+
+                snip.innerHTML = `<span class="gr-ln">${m.lineNum}</span><span class="gr-line-code">${highlighted}</span>`;
+
+                // clicking snippet opens file and jumps to that line
+                snip.addEventListener('click', () => {
+                    const item = document.querySelector(`.file-item
+					                    [data-file="${file}"][data-part="${part}"]`);
+                    loadFile(part, file, size, item).then(() => {
+                        setTimeout(() => {
+                            openInlineSearch();
+                            document.getElementById('inline-input').value = query;
+                            applyInlineSearch(query);
+                            // scroll to specific line
+                            const lnEl = document.getElementById(`ln-${m.lineNum}`);
+                            if (lnEl) lnEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }, 600);
+                    });
+                });
+
+                snippets.appendChild(snip);
+            }
+
+            if (matches.length > 5) {
+                const more = document.createElement('div');
+                more.className = 'gr-more';
+                more.textContent = `+ ${matches.length - 5} more matches — click file to open`;
+                snippets.appendChild(more);
+            }
+
+            card.appendChild(cardHeader);
+            card.appendChild(snippets);
+            grList.appendChild(card);
+
+        } catch (err) {
+            if (err.name === 'AbortError') { aborted = true; break; }
+            // silently skip fetch errors per file
+        }
+    }
+
+    if (!aborted) {
+        grProgress.textContent = `Done · ${FILES.length} files scanned · ${matched} file${matched !== 1 ? 's' : ''} matched`;
+        if (matched === 0) {
+            grList.innerHTML = `<div class="gr-empty">No matches found for <span class="gr-query">"${escHtml(query)}"</span></div>`;
+        }
+    }
+}
+
+function clearGlobalResults() {
+    document.getElementById('global-results').innerHTML = '';
+    document.getElementById('global-results').style.display = 'none';
+}
+
+// ═══════════════════════════════════════════════════════════
+//  SYNTAX HIGHLIGHTER
+// ═══════════════════════════════════════════════════════════
 const KEYWORDS = new Set([
     'alignas','alignof','and','and_eq','asm','auto','bitand','bitor','bool',
     'break','case','catch','char','char8_t','char16_t','char32_t','class',
@@ -1514,7 +1969,6 @@ function highlightCpp(raw) {
     const out   = [];
 
     for (let line of lines) {
-        // comment
         const cmtIdx = line.indexOf('//');
         let codePart = line, cmtPart = '';
         if (cmtIdx !== -1) {
@@ -1522,16 +1976,14 @@ function highlightCpp(raw) {
             cmtPart  = line.slice(cmtIdx);
         }
 
-        // preprocessor
         const trimmed = codePart.trimStart();
         if (trimmed.startsWith('#')) {
-            const escaped = escHtml(codePart);
+            const escaped    = escHtml(codePart);
             const escapedCmt = cmtPart ? `<span class="cmt">${escHtml(cmtPart)}</span>` : '';
             out.push(`<span class="pp">${escaped}</span>${escapedCmt}`);
             continue;
         }
 
-        // tokenise code part
         let result = '';
         const tokens = codePart.split(/(\b\w+\b|"[^"]*"|'[^']*'|\s+|[^\w\s"']+)/g).filter(Boolean);
         for (let tok of tokens) {
@@ -1547,15 +1999,14 @@ function highlightCpp(raw) {
                 result += `<span class="ty">${escHtml(tok)}</span>`;
             } else if (/^[A-Z][A-Za-z0-9_]*$/.test(tok) && tok.length > 1) {
                 result += `<span class="ty">${escHtml(tok)}</span>`;
-            } else if (/^[a-z_][a-zA-Z0-9_]*\s*(?=\$)/.test(tok)) {
+            } else if (/^[a-z_][a-zA-Z0-9_]*$/.test(tok)) {
                 result += `<span class="fn">${escHtml(tok)}</span>`;
             } else {
                 result += escHtml(tok);
             }
         }
 
-        const escapedCmt = cmtPart
-		            ? `<span class="cmt">${escHtml(cmtPart)}</span>` : '';
+        const escapedCmt = cmtPart ? `<span class="cmt">${escHtml(cmtPart)}</span>` : '';
         out.push(result + escapedCmt);
     }
 
@@ -1601,7 +2052,7 @@ function buildSidebar() {
             item.dataset.size = size;
             item.innerHTML = `
                 <span class="file-ext">.H</span>
-                <span class="file-name-text">${file.replace('.h','').replace('.H','')}</span>
+                <span class="file-name-text">${file.replace(/\.h$/i, '')}</span>
                 <span class="file-size-label">${fmtSize(size)}</span>`;
             item.addEventListener('click', () => loadFile(part, file, size, item));
             list.appendChild(item);
@@ -1625,52 +2076,17 @@ function togglePart(header, list) {
 }
 
 // ═══════════════════════════════════════════════════════════
-//  SIDEBAR FILTER
-// ═══════════════════════════════════════════════════════════
-document.getElementById('search').addEventListener('input', function() {
-    const q = this.value.trim().toLowerCase();
-    const items = document.querySelectorAll('.file-item');
-    const groups = document.querySelectorAll('.part-group');
-
-    items.forEach(item => {
-        const name = item.dataset.file.toLowerCase();
-        if (!q || name.includes(q)) {
-            item.classList.remove('hidden');
-        } else {
-            item.classList.add('hidden');
-        }
-    });
-
-    // auto-expand all parts when searching
-    if (q) {
-        groups.forEach(group => {
-            const header = group.querySelector('.part-header');
-            const list   = group.querySelector('.file-list');
-            header.classList.add('open');
-            list.classList.add('open');
-        });
-    }
-
-    // hide entire group if all files hidden
-    groups.forEach(group => {
-        const visible = group.querySelectorAll('.file-item:not(.hidden)').length;
-        group.style.display = visible === 0 ? 'none' : '';
-    });
-});
-
-// ═══════════════════════════════════════════════════════════
 //  LOAD FILE
 // ═══════════════════════════════════════════════════════════
 async function loadFile(part, file, size, itemEl) {
-    // update active state
     document.querySelectorAll('.file-item').forEach(i => i.classList.remove('active'));
     if (itemEl) itemEl.classList.add('active');
 
-    currentFile = file;
-    currentPart = part;
-    rawContent  = '';
-    hitNodes    = [];
-    hitIndex    = 0;
+    currentFile  = file;
+    currentPart  = part;
+    rawContent   = '';
+    hitNodes     = [];
+    hitIndex     = 0;
 
     showState('loading');
     setProgress(20);
@@ -1686,11 +2102,13 @@ async function loadFile(part, file, size, itemEl) {
         rawContent = text;
         setProgress(100, true);
         renderFile(file, part, size, text);
+        return text;
     } catch (err) {
         setProgress(100, true);
         document.getElementById('error-msg').textContent =
             `Could not fetch: ${url}\n\nError: ${err.message}\n\nMake sure your repository is public and the path is correct.`;
         showState('error');
+        throw err;
     }
 }
 
@@ -1700,38 +2118,29 @@ async function loadFile(part, file, size, itemEl) {
 function renderFile(file, part, size, text) {
     const lines = text.split('\n');
 
-    // update breadcrumb
     document.getElementById('crumb-part').textContent = part;
     document.getElementById('crumb-file').textContent = file;
-
-    // update badges
     document.getElementById('badge-lines').textContent = lines.length.toLocaleString() + ' lines';
     document.getElementById('badge-size').textContent  = fmtSize(size);
 
-    // build line numbers
     const lnContainer = document.getElementById('line-numbers');
     lnContainer.innerHTML = '';
     const lnFrag = document.createDocumentFragment();
     for (let i = 1; i <= lines.length; i++) {
         const span = document.createElement('span');
-        span.className = 'ln';
-        span.id = `ln-${i}`;
+        span.className   = 'ln';
+        span.id          = `ln-${i}`;
         span.textContent = i;
         lnFrag.appendChild(span);
     }
     lnContainer.appendChild(lnFrag);
 
-    // syntax highlight and render
     const highlighted = highlightCpp(text);
-    const pre = document.getElementById('code-pre');
-    pre.innerHTML = highlighted;
+    document.getElementById('code-pre').innerHTML = highlighted;
 
     showState('viewer');
-
-    // scroll to top
     document.getElementById('code-wrap').scrollTop = 0;
 
-    // re-apply inline search if open
     if (inlineVisible) {
         const q = document.getElementById('inline-input').value;
         if (q) applyInlineSearch(q);
@@ -1742,24 +2151,18 @@ function renderFile(file, part, size, text) {
 //  INLINE SEARCH
 // ═══════════════════════════════════════════════════════════
 function toggleInlineSearch() {
-    if (inlineVisible) {
-        closeInlineSearch();
-    } else {
-        openInlineSearch();
-    }
+    inlineVisible ? closeInlineSearch() : openInlineSearch();
 }
 
 function openInlineSearch() {
     inlineVisible = true;
-    const bar = document.getElementById('inline-bar');
-    bar.classList.add('visible');
+    document.getElementById('inline-bar').classList.add('visible');
     document.getElementById('inline-input').focus();
 }
 
 function closeInlineSearch() {
     inlineVisible = false;
-    const bar = document.getElementById('inline-bar');
-    bar.classList.remove('visible');
+    document.getElementById('inline-bar').classList.remove('visible');
     clearHits();
     document.getElementById('inline-info').textContent = '0 / 0';
 }
@@ -1769,25 +2172,19 @@ document.getElementById('inline-input').addEventListener('input', function() {
 });
 
 document.getElementById('inline-input').addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') {
-        if (e.shiftKey) prevHit();
-        else nextHit();
-    }
+    if (e.key === 'Enter') { e.shiftKey ? prevHit() : nextHit(); }
     if (e.key === 'Escape') closeInlineSearch();
 });
 
 function clearHits() {
-    // remove all mark elements, restore text
-    const pre = document.getElementById('code-pre');
+    const pre   = document.getElementById('code-pre');
     const marks = pre.querySelectorAll('mark.hit');
     marks.forEach(m => {
-        const parent = m.parentNode;
-        parent.replaceChild(document.createTextNode(m.textContent), m);
-        parent.normalize();
+        m.parentNode.replaceChild(document.createTextNode(m.textContent), m);
+        m.parentNode.normalize();
     });
-    hitNodes  = [];
-    hitIndex  = 0;
-    // also clear line highlights
+    hitNodes = [];
+    hitIndex = 0;
     document.querySelectorAll('.ln.hl').forEach(l => l.classList.remove('hl'));
 }
 
@@ -1800,8 +2197,6 @@ function applyInlineSearch(query) {
 
     const pre  = document.getElementById('code-pre');
     const lq   = query.toLowerCase();
-
-    // walk text nodes and wrap matches
     const walker = document.createTreeWalker(pre, NodeFilter.SHOW_TEXT, null);
     const textNodes = [];
     let node;
@@ -1810,15 +2205,15 @@ function applyInlineSearch(query) {
     for (const tn of textNodes) {
         const val  = tn.nodeValue;
         const lval = val.toLowerCase();
-        let idx = lval.indexOf(lq);
+        let idx    = lval.indexOf(lq);
         if (idx === -1) continue;
 
         const frag = document.createDocumentFragment();
-        let last = 0;
+        let last   = 0;
         while (idx !== -1) {
             if (idx > last) frag.appendChild(document.createTextNode(val.slice(last, idx)));
-            const mark = document.createElement('mark');
-            mark.className = 'hit';
+            const mark       = document.createElement('mark');
+            mark.className   = 'hit';
             mark.textContent = val.slice(idx, idx + query.length);
             frag.appendChild(mark);
             hitNodes.push(mark);
@@ -1836,11 +2231,7 @@ function applyInlineSearch(query) {
 
 function updateHitInfo() {
     const info = document.getElementById('inline-info');
-    if (hitNodes.length === 0) {
-        info.textContent = '0 / 0';
-        return;
-    }
-    info.textContent = `${hitIndex + 1} / ${hitNodes.length}`;
+    info.textContent = hitNodes.length === 0 ? '0 / 0' : `${hitIndex + 1} / ${hitNodes.length}`;
 }
 
 function scrollToHit(idx) {
@@ -1848,12 +2239,10 @@ function scrollToHit(idx) {
     hitNodes.forEach(m => m.classList.remove('cur'));
     hitNodes[idx].classList.add('cur');
     hitNodes[idx].scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-    // highlight line number
     document.querySelectorAll('.ln.hl').forEach(l => l.classList.remove('hl'));
-    const rect    = hitNodes[idx].getBoundingClientRect();
     const wrap    = document.getElementById('code-wrap');
     const wrapTop = wrap.getBoundingClientRect().top;
+    const rect    = hitNodes[idx].getBoundingClientRect();
     const lineH   = 19;
     const scrollT = wrap.scrollTop;
     const relTop  = rect.top - wrapTop + scrollT - 18;
@@ -1899,15 +2288,13 @@ function copyRawUrl() {
     });
 }
 
-// keyboard shortcut: Ctrl+F to open inline search
+// keyboard shortcuts
 document.addEventListener('keydown', e => {
     if ((e.ctrlKey || e.metaKey) && e.key === 'f' && currentFile) {
         e.preventDefault();
         openInlineSearch();
     }
-    if (e.key === 'Escape' && inlineVisible) {
-        closeInlineSearch();
-    }
+    if (e.key === 'Escape' && inlineVisible) closeInlineSearch();
 });
 
 // ═══════════════════════════════════════════════════════════
@@ -1916,6 +2303,3 @@ document.addEventListener('keydown', e => {
 buildSidebar();
 showState('welcome');
 </script>
-
-</body>
-</html>
