@@ -695,6 +695,11 @@
         .ln { display: block; padding: 0 10px; font-size: 11px; line-height: 19px; color: var(--text-dimmer); font-family: 'Consolas',monospace; }
         .ln.hl { background: rgba(0,255,65,0.06); color: var(--green-dim); }
 
+        .big-icon img {
+        width: 120px;   /* adjust size here */
+        height: auto;
+        }
+
         #code-content { flex: 1; padding: 16px 20px; }
 
         #code-content pre {
@@ -1176,18 +1181,27 @@
 
         <div id="page-sdk" class="active">
 
-            <div id="welcome">
-                <div class="big-icon">⬡</div>
-                <h2>IDA Web</h2>
-                <p>A totally legitimate, definitely-not-a-parody browser-based reverse engineering tool.<br>Browse 257 Valorant SDK header files. No IDA Pro license required.</p>
-                <div class="hint-box">← SELECT A FILE · OR PRESS G TO SEARCH</div>
-                <div class="welcome-shortcuts">
-                    <div class="shortcut-badge"><kbd>G</kbd> — Open Search</div>
-                    <div class="shortcut-badge"><kbd>Ctrl+F</kbd> — Find in File</div>
-                    <div class="shortcut-badge"><kbd>Esc</kbd> — Close</div>
-                </div>
-            </div>
+<div id="welcome">
+    <div class="big-icon">
+        <img src="https://i.imgur.com/BsQvbYd.png" class="welcome-logo">
+    </div>
 
+    <h2>IDA Web</h2>
+
+    <p>
+        A totally legitimate, definitely-not-a-parody browser-based reverse engineering tool.<br>
+        Browse 257 Valorant SDK header files. No IDA Pro license required.
+    </p>
+
+    <div class="hint-box">← SELECT A FILE · OR PRESS G TO SEARCH</div>
+
+    <div class="welcome-shortcuts">
+        <div class="shortcut-badge"><kbd>G</kbd> — Open Search</div>
+        <div class="shortcut-badge"><kbd>Ctrl+F</kbd> — Find in File</div>
+        <div class="shortcut-badge"><kbd>Esc</kbd> — Close</div>
+    </div>
+</div>
+            
             <div id="load-state">
                 <div class="spinner"></div>
                 <div class="load-text">DECOMPILING...</div>
