@@ -1,6 +1,7 @@
 # 🟣 ValorantOffsets
 
-A **searchable browser for Valorant offsets and SDK references**, designed for reverse engineering and research. No IDA Pro license required — inspect Valorant SDK structures directly in your browser.
+A **searchable browser for Valorant offsets and SDK references**, designed for reverse engineering and research. IDA parody, yes i know IDA isn't used to
+look at decompiled SDK's but its a parody what do you expect?
 
 ---
 
