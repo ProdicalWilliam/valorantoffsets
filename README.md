@@ -38,21 +38,7 @@ A **searchable browser for Valorant offsets and SDK references**, designed for r
 
 ---
 
-## 🔹 Example Menu
-
-Here’s a preview of the main menu and layout:
-
-![Menu Preview](https://i.imgur.com/HD9tjNP.png)
-
----
-
 ## 🔹 Notes
 
-This tool is **meant for research and educational purposes**. Please respect software licensing and reverse engineering rules.  
+This tool is **meant for research and educational purposes**. Riot please don't sue me.
 
----
-
-## 🔗 Links
-
-- [Project Image/Preview](https://i.imgur.com/HD9tjNP.png)  
-- Open source and searchable directly in your browser.
