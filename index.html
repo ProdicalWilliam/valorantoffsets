@@ -1145,18 +1145,23 @@
         </div>
     </div>
 
-    <header id="header">
-        <div id="header-brand">
-            <h1>⬡ IDA Web</h1>
-            <span class="subtitle">Valorant SDK Browser</span>
-        </div>
-        <button class="ida-btn" onclick="openSearchModal()">⌕ Search (G)</button>
-        <button class="ida-btn" id="search-mode-btn">Mode: Name</button>
-        <div id="nav-tabs">
-            <div class="nav-tab active" onclick="switchTab('sdk')">SDK Browser</div>
-            <div class="nav-tab" onclick="switchTab('offsets')">Patch 12.04 Offsets</div>
-        </div>
-    </header>
+<header id="header">
+    <div id="header-brand">
+        <h1>
+            <img src="https://i.imgur.com/BsQvbYd.png" class="logo-icon">
+            IDA Web
+        </h1>
+        <span class="subtitle">Valorant SDK Browser</span>
+    </div>
+
+    <button class="ida-btn" onclick="openSearchModal()">⌕ Search (G)</button>
+    <button class="ida-btn" id="search-mode-btn">Mode: Name</button>
+
+    <div id="nav-tabs">
+        <div class="nav-tab active" onclick="switchTab('sdk')">SDK Browser</div>
+        <div class="nav-tab" onclick="switchTab('offsets')">Patch 12.04 Offsets</div>
+    </div>
+</header>
 
     <nav id="sidebar"></nav>
 
