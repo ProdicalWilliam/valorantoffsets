@@ -466,53 +466,54 @@
     box-shadow: 0 0 10px var(--green-glow-strong);
 }
 
-/* THEME PICKER - SHOW ONE, REVEAL ON HOVER */
 #color-picker-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+    font-size: 10px;
+    color: var(--text-dimmer);
     position: relative;
-    overflow: hidden;
-    width: 18px;
-    cursor: pointer;
-    user-select: none;
 }
 
-#color-picker-wrap:hover {
-    width: auto;
+#color-picker-wrap .theme-label {
+    margin-right: 6px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+#theme-swatches {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    max-width: 18px;
+    overflow: hidden;
+    transition: max-width 0.3s ease;
+}
+
+#color-picker-wrap:hover #theme-swatches {
+    max-width: 200px;
 }
 
 .color-swatch {
-    width: 18px;
-    height: 18px;
-    margin-right: 8px;
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
-    border: 2px solid rgba(255,255,255,0.15);
-    box-shadow: none;
-    transition: transform 0.2s, border-color 0.3s, box-shadow 0.3s;
-    display: inline-block;
-    vertical-align: middle;
+    border: 1px solid rgba(255,255,255,0.15);
+    transition: transform 0.15s, box-shadow 0.15s, opacity 0.2s;
+    flex-shrink: 0;
+    opacity: 0;
 }
 
-.color-swatch.active {
-    border-color: #fff;
-    box-shadow: 0 0 8px var(--accent);
+#theme-swatches .color-swatch:first-child {
+    opacity: 1;
 }
 
 #color-picker-wrap:hover .color-swatch {
-    width: 18px;
-    height: 18px;
-    margin-right: 4px;
-    display: inline-block;
-    transform: none;
-}
-
-.color-swatch:not(.active) {
-    opacity: 0.6;
-}
-
-.color-swatch:hover {
-    transform: scale(1.3);
-    border-color: var(--accent);
     opacity: 1;
 }
+
+.color-swatch:hover { transform: scale(1.3); }
+.color-swatch.active { box-shadow: 0 0 0 2px #fff; opacity: 1; }
         
         .gr-header {
             display: flex;
@@ -1128,14 +1129,17 @@
         <span class="menu-item">Windows</span>
         <span class="menu-item">Help</span>
         <div class="menu-right">
-            <div id="color-picker-wrap">
-                <span>Theme:</span>
-                <div class="color-swatch active" style="background:#00ff41" data-color="#00ff41" data-glow="rgba(0,255,65,0.15)" data-glowstrong="rgba(0,255,65,0.35)" data-dim="#00cc33" title="Green"></div>
-                <div class="color-swatch" style="background:#00cfff" data-color="#00cfff" data-glow="rgba(0,207,255,0.15)" data-glowstrong="rgba(0,207,255,0.35)" data-dim="#00aadd" title="Cyan"></div>
-                <div class="color-swatch" style="background:#ff4ecd" data-color="#ff4ecd" data-glow="rgba(255,78,205,0.15)" data-glowstrong="rgba(255,78,205,0.35)" data-dim="#cc3aaa" title="Pink"></div>
-                <div class="color-swatch" style="background:#ff9f00" data-color="#ff9f00" data-glow="rgba(255,159,0,0.15)" data-glowstrong="rgba(255,159,0,0.35)" data-dim="#cc7f00" title="Amber"></div>
-                <div class="color-swatch" style="background:#a855f7" data-color="#a855f7" data-glow="rgba(168,85,247,0.15)" data-glowstrong="rgba(168,85,247,0.35)" data-dim="#8833dd" title="Purple"></div>
-            </div>
+<div id="color-picker-wrap">
+    <span class="theme-label">Theme:</span>
+    <div id="theme-swatches">
+        <div class="color-swatch active" style="background:#00ff41" data-color="#00ff41" data-glow="rgba(0,255,65,0.15)" data-glowstrong="rgba(0,255,65,0.35)" data-dim="#00cc33" title="Green"></div>
+        <div class="color-swatch" style="background:#00cfff" data-color="#00cfff" data-glow="rgba(0,207,255,0.15)" data-glowstrong="rgba(0,207,255,0.35)" data-dim="#00aadd" title="Cyan"></div>
+        <div class="color-swatch" style="background:#ff4ecd" data-color="#ff4ecd" data-glow="rgba(255,78,205,0.15)" data-glowstrong="rgba(255,78,205,0.35)" data-dim="#cc3aaa" title="Pink"></div>
+        <div class="color-swatch" style="background:#ff9f00" data-color="#ff9f00" data-glow="rgba(255,159,0,0.15)" data-glowstrong="rgba(255,159,0,0.35)" data-dim="#cc7f00" title="Amber"></div>
+        <div class="color-swatch" style="background:#a855f7" data-color="#a855f7" data-glow="rgba(168,85,247,0.15)" data-glowstrong="rgba(168,85,247,0.35)" data-dim="#8833dd" title="Purple"></div>
+        <div class="color-swatch" style="background:#ffffff" data-color="#ffffff" data-glow="rgba(255,255,255,0.15)" data-glowstrong="rgba(255,255,255,0.35)" data-dim="#cccccc" title="White"></div>
+    </div>
+</div>
             <div class="menu-sep"></div>
             <span class="menu-credit">Made by <span>SmackThatOl</span></span>
         </div>
@@ -1910,12 +1914,14 @@ function switchTab(tab) {
         document.querySelectorAll('.nav-tab')[0].classList.add('active');
         document.getElementById('page-sdk').classList.add('active');
         document.getElementById('sidebar').style.display = '';
+        document.getElementById('app').style.gridTemplateColumns = '300px 1fr';
     } else {
         document.querySelectorAll('.nav-tab')[1].classList.add('active');
         document.getElementById('page-offsets').classList.add('active');
         document.getElementById('sidebar').style.display = 'none';
+        document.getElementById('app').style.gridTemplateColumns = '1fr';
     }
-}
+}878
 
 function openSearchModal() {
     document.getElementById('ida-modal-overlay').classList.add('visible');
